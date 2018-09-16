@@ -1,0 +1,29 @@
+{
+  "name": "tutorialcreatingwebapplicationswithgo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Unc7e/TutorialCreatingWebApplicationWithGo.git"
+  },
+  "author": "Leon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Unc7e/TutorialCreatingWebApplicationWithGo/issues"
+  },
+  "homepage": "https://github.com/Unc7e/TutorialCreatingWebApplicationWithGo#readme",
+  "dependencies": {
+    "zurb-foundation-5": "^5.4.7"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-sass": "^3.0.1",
+    "load-grunt-tasks": "^4.0.0",
+    "node-sass": "^4.9.3"
+  }
+}
