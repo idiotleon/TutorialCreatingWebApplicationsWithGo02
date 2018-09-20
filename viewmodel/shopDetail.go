@@ -2,6 +2,8 @@ package viewmodel
 
 import (
 	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo/model"
+
+	"fmt"
 )
 
 type ShopDetail struct {
@@ -11,6 +13,7 @@ type ShopDetail struct {
 }
 
 func NewShopDetail(products []model.Product) ShopDetail {
+	fmt.Println("Length of products, shopDetail: ", len(products))
 	result := ShopDetail{
 		Title:    "Lemonade Stand Supply",
 		Active:   "shop",

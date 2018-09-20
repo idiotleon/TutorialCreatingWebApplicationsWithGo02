@@ -2,7 +2,15 @@ package viewmodel
 
 import (
 	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo/model"
+
+	"fmt"
 )
+
+type ProductViewModel struct {
+	Title   string
+	Active  string
+	Product Product
+}
 
 type Product struct {
 	Name             string
@@ -17,6 +25,7 @@ type Product struct {
 }
 
 func productToVM(product model.Product) Product {
+	fmt.Println("PricePerLiter of product, product.go: ", product.PricePerLiter)
 	return Product{
 		Name:             product.Name,
 		DescriptionShort: product.DescriptionShort,

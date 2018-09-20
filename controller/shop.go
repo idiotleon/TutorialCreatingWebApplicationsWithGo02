@@ -8,6 +8,8 @@ import (
 
 	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo/model"
 	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo/viewmodel"
+
+	"fmt"
 )
 
 type shop struct {
@@ -21,7 +23,7 @@ func (s shop) registerRoutes() {
 }
 
 func (s shop) handleShop(w http.ResponseWriter, r *http.Request) {
-	categoryPattern, _ := regexp.Compile(`/shop(\d+)`)
+	categoryPattern, _ := regexp.Compile(`/shop/(\d+)`)
 	matches := categoryPattern.FindStringSubmatch(r.URL.Path)
 	if len(matches) > 0 {
 		categoryID, _ := strconv.Atoi(matches[1])
@@ -35,6 +37,7 @@ func (s shop) handleShop(w http.ResponseWriter, r *http.Request) {
 
 func (s shop) handleCategory(w http.ResponseWriter, r *http.Request, categoryID int) {
 	products := model.GetProductsForCategory(categoryID)
+	fmt.Println("Length of products: ", len(products))
 	vm := viewmodel.NewShopDetail(products)
 	s.categoryTemplate.Execute(w, vm)
 }

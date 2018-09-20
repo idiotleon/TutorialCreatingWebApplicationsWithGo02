@@ -1,5 +1,9 @@
 package model
 
+import (
+	"fmt"
+)
+
 type Product struct {
 	Name             string
 	DescriptionShort string
@@ -20,14 +24,24 @@ func GetProductsForCategory(categoryID int) []Product {
 			result = append(result, p)
 		}
 	}
+	fmt.Println("Length of result ", len(result))
 	return result
+}
+
+func GetProduct(productID int) (*Product, error) {
+	for _, p := range products {
+		if p.ID == productID {
+			return &p, nil
+		}
+	}
+	return nil, fmt.Errorf("Product not found with ID %v", productID)
 }
 
 var products []Product = []Product{
 	Product{
 		Name:             "Lemon Juice",
 		DescriptionShort: "Made from fresh, organic California lemons.",
-		DescriptionLong: `Made from premium, organic Meyer lemons. These fruit are left on the tree until they reach the peak of ripeness and then juiced within 8 hours of being picked.
+		DescriptionLong: `Made from premium, organic Meyer lemons. These fruit are left on the tree until they reach the peak of ripeness and then juiced within 8 hours of being picked. 
 			<br/>
 			Lemonade made from our premium juice is sure to make your stand the most popular in the neighborhood.`,
 		PricePerLiter:   1.09,
