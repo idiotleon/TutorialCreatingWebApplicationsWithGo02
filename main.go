@@ -7,12 +7,13 @@ import (
 	"os"
 
 	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo/controller"
+	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo/middleware"
 )
 
 func main() {
 	templates := populateTemplates()
 	controller.Startup(templates)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":8080", new(middleware.GzipMiddleware))
 }
 
 func populateTemplates() map[string]*template.Template {
