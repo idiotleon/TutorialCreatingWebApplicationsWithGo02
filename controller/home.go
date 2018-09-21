@@ -1,23 +1,23 @@
 package controller
 
 import (
+	"fmt"
 	"html/template"
+	"log"
 	"net/http"
 
 	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo/viewmodel"
-
-	"fmt"
-	"log"
 )
 
 type home struct {
-	homeTemplate  *template.Template
-	loginTemplate *template.Template
+	homeTemplate         *template.Template
+	loginTemplate        *template.Template
+	standLocatorTemplate *template.Template
 }
 
 func (h home) registerRoutes() {
-	http.HandleFunc("/home", h.handleHome)
 	http.HandleFunc("/", h.handleHome)
+	http.HandleFunc("/home", h.handleHome)
 	http.HandleFunc("/login", h.handleLogin)
 }
 

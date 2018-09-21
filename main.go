@@ -7,8 +7,6 @@ import (
 	"os"
 
 	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo/controller"
-
-	"fmt"
 )
 
 func main() {
@@ -35,8 +33,6 @@ func populateTemplates() map[string]*template.Template {
 		f, err := os.Open(rootTemplatePath + "/content/" + fi.Name())
 		if err != nil {
 			panic("Failed to open template '" + fi.Name() + "'")
-		} else {
-			fmt.Println("fi.Name(), main.go: ", fi.Name())
 		}
 		content, err := ioutil.ReadAll(f)
 		if err != nil {
