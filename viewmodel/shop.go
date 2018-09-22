@@ -2,7 +2,7 @@ package viewmodel
 
 import (
 	"fmt"
-	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo/model"
+	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo02/model"
 )
 
 type Shop struct {

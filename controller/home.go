@@ -5,9 +5,9 @@ import (
 	"html/template"
 	"log"
 	"net/http"
-	"time"
+	// "time"
 
-	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo/viewmodel"
+	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo02/viewmodel"
 )
 
 type home struct {
@@ -25,7 +25,7 @@ func (h home) registerRoutes() {
 func (h home) handleHome(w http.ResponseWriter, r *http.Request) {
 	vm := viewmodel.NewHome()
 	w.Header().Add("Content-Type", "text/html")
-	time.Sleep(4 * time.Second)
+	// time.Sleep(4 * time.Second)
 	h.homeTemplate.Execute(w, vm)
 }
 

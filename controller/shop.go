@@ -6,8 +6,8 @@ import (
 	"regexp"
 	"strconv"
 
-	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo/model"
-	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo/viewmodel"
+	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo02/model"
+	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo02/viewmodel"
 
 	"fmt"
 )

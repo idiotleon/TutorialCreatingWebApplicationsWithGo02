@@ -1,19 +1,36 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
 
-	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo/controller"
-	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo/middleware"
+	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo02/controller"
+	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo02/middleware"
+	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo02/model"
+
+	"database/sql"
+	_ "github.com/lib/pq"
 )
 
 func main() {
 	templates := populateTemplates()
+	db := connectToDatabase()
+	defer db.Close()
 	controller.Startup(templates)
 	http.ListenAndServe(":8080", &middleware.TimeoutMiddleware{new(middleware.GzipMiddleware)})
+}
+
+func connectToDatabase() *sql.DB {
+	db, err := sql.Open("postgres", "postgres://idiotleon:idiotLeon@localhost/testdb?sslmode=disable")
+	if err != nil {
+		log.Fatalln(fmt.Errorf("Unable to connect to database: %v", err))
+	}
+	model.SetDatabase(db)
+	return db
 }
 
 func populateTemplates() map[string]*template.Template {

@@ -7,7 +7,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo/viewmodel"
+	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo02/viewmodel"
 )
 
 type standLocator struct {

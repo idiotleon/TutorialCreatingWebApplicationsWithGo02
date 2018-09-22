@@ -1,7 +1,7 @@
 package viewmodel
 
 import (
-	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo/model"
+	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo02/model"
 
 	"fmt"
 )
