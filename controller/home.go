@@ -24,6 +24,12 @@ func (h home) registerRoutes() {
 }
 
 func (h home) handleHome(w http.ResponseWriter, r *http.Request) {
+	if pusher, ok := w.(http.Pusher); ok {
+		pusher.Push("/css/app.css", &http.PushOptions{
+			Header: http.Header{"Content-Type": []string{"text/css"}},
+		})
+	}
+
 	vm := viewmodel.NewHome()
 	w.Header().Add("Content-Type", "text/html")
 	// time.Sleep(4 * time.Second)

@@ -1,2 +1,4 @@
 node_modules/
 .vscode/
+cert.pem
+key.pem
