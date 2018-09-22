@@ -25,7 +25,7 @@ func main() {
 }
 
 func connectToDatabase() *sql.DB {
-	db, err := sql.Open("postgres", "postgres://idiotleon:idiotLeon@localhost/testdb?sslmode=disable")
+	db, err := sql.Open("postgres", "postgres://idiotLeon:idiotLeon@localhost/testdb?sslmode=disable")
 	if err != nil {
 		log.Fatalln(fmt.Errorf("Unable to connect to database: %v", err))
 	}

@@ -7,6 +7,7 @@ import (
 	"net/http"
 	// "time"
 
+	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo02/model"
 	"github.com/idiotLeon/TutorialCreatingWebApplicationsWithGo02/viewmodel"
 )
 
@@ -39,10 +40,12 @@ func (h home) handleLogin(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(r.Form)
 		email := r.Form.Get("email")
 		password := r.Form.Get("password")
-		if email == "test@gmail.com" && password == "password" {
+		if user, err := model.Login(email, password); err == nil {
+			log.Printf("User has logged in: %v\n", user)
 			http.Redirect(w, r, "/home", http.StatusTemporaryRedirect)
 			return
 		} else {
+			log.Printf("Failed to log user in with email: %v\n, error was: %v\n", email, err)
 			vm.Email = email
 			vm.Password = password
 		}
