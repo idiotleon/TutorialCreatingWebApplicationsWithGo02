@@ -14,6 +14,7 @@ import (
 
 	"database/sql"
 	_ "github.com/lib/pq"
+	_ "net/http/pprof"
 )
 
 func main() {
@@ -21,6 +22,8 @@ func main() {
 	db := connectToDatabase()
 	defer db.Close()
 	controller.Startup(templates)
+	// Gorouting temporarily added for profiling purpose
+	go http.ListenAndServe(":8000", nil)
 	http.ListenAndServeTLS(":8080", "cert.pem", "key.pem", &middleware.TimeoutMiddleware{new(middleware.GzipMiddleware)})
 }
 
